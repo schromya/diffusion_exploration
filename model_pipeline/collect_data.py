@@ -17,8 +17,8 @@ def save_to_zarr(path:str, observations, actions, episode_ends):
     root.require_group('data')
     root.require_group('meta')
 
-    root['data']['state'] = np.array(observations)
-    root['data']['action'] = np.array(actions)
+    root['data']['state'] = np.array(observations, dtype=np.float32)                                                                                                                                                                                                                              
+    root['data']['action'] = np.array(actions, dtype=np.float32)
     root['meta']['episode_ends'] = np.array(episode_ends)
 
 

@@ -5,10 +5,11 @@ Diffusion policy taken from [here](https://diffusion-policy.cs.columbia.edu/).
 
 
 ## Setup (Linux)
-1. Create your virtual environment
+1. Create your virtual environment and install dependencies
 ```bash
 python3.10 -m venv venv-diff
 source venv-diff/bin/activate
+pip install -r requirements.txt
 ```
 
 2. If running the jupiter notebook, in VSCode, in the ipynb select venv-dex as your kernel.

@@ -102,3 +102,4 @@ def train_diffusion_model(noise_pred_net, noise_scheduler, dataloader, device,
     # is used for inference
     ema_noise_pred_net = noise_pred_net
     ema.copy_to(ema_noise_pred_net.parameters())
+    return ema_noise_pred_net

@@ -12,3 +12,10 @@ source venv-diff/bin/activate
 ```
 
 2. In VSCode, in the ipynb select venv-dex as your kernel.
+
+
+
+## Results
+Trained on provided data:
+
+<img src="./T_push_trained.gif" width="200">

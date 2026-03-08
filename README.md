@@ -11,9 +11,12 @@ python3.10 -m venv venv-diff
 source venv-diff/bin/activate
 ```
 
-2. In VSCode, in the ipynb select venv-dex as your kernel.
+2. If running the jupiter notebook, in VSCode, in the ipynb select venv-dex as your kernel.
 
 
+## Running 
+* Jupiter notebook (diffusion_policy_state_pusht_demo.ipynb): Run in VScode
+* 
 
 ## Results
 Trained on provided data:

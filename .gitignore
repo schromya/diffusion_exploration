@@ -1,2 +1,6 @@
 /venv
 /venv-diff
+
+# Generated files
+pusht_*
+vis.mp4

@@ -17,6 +17,7 @@ Adapted from https://colab.research.google.com/drive/1gxdkgRVfM55zihY9TFLja97cSV
 import numpy as np
 import torch
 import zarr
+import skimage.transform as st
 
 def create_sample_indices(
         episode_ends:np.ndarray, sequence_length:int,

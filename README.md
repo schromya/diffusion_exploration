@@ -16,7 +16,10 @@ source venv-diff/bin/activate
 
 ## Running 
 * Jupiter notebook (diffusion_policy_state_pusht_demo.ipynb): Run in VScode
-* 
+* Training your own data:
+```bash
+python3 model_pipeline/collect_data.py
+```
 
 ## Results
 Trained on provided data:

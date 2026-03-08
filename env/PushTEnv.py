@@ -16,6 +16,7 @@ import pymunk.pygame_util
 from pymunk.vec2d import Vec2d
 import gym
 from gym import spaces
+import skimage.transform as st
 
 class PushTEnv(gym.Env):
     metadata = {"render.modes": ["human", "rgb_array"], "video.frames_per_second": 10}

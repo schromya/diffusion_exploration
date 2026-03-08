@@ -5,7 +5,7 @@ Adapted from https://colab.research.google.com/drive/1gxdkgRVfM55zihY9TFLja97cSV
 """
 import torch
 from diffusers.schedulers.scheduling_ddpm import DDPMScheduler
-from ConditionalUnet1D import ConditionalUnet1D
+from models.ConditionalUnet1D import ConditionalUnet1D
 
 
 

@@ -5,7 +5,7 @@ Defines a PyMunk-based Push-T environment `PushTEnv`.
 Adapted from https://colab.research.google.com/drive/1gxdkgRVfM55zihY9TFLja97cSVZOZq2B?usp=sharing 
  which is adapted from [Implicit Behavior Cloning](https://implicitbc.github.io/)
 """
-from DrawOptions import pymunk_to_shapely, DrawOptions
+from env.DrawOptions import pymunk_to_shapely, DrawOptions
 
 import collections
 import cv2

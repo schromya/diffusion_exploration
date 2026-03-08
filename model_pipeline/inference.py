@@ -5,7 +5,7 @@ Adapted from https://colab.research.google.com/drive/1gxdkgRVfM55zihY9TFLja97cSV
 """
 
 # TODO: Make this usable across different models
-from PushTDataset import normalize_data, unnormalize_data
+from model_pipeline.PushTDataset import normalize_data, unnormalize_data
 
 import collections
 from tqdm.auto import tqdm

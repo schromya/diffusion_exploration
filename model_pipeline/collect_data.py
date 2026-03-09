@@ -22,41 +22,48 @@ def save_to_zarr(path:str, observations, actions, episode_ends):
     root['meta']['episode_ends'] = np.array(episode_ends)
 
 
-NUM_EPISODES = 5
-PATH = "pusht_trained_state_data.zarr"
-
-env = PushTEnv()
-agent = env.teleop_agent()
+def collect_data(num_episodes, path, control_hz):
+    env = PushTEnv()
+    agent = env.teleop_agent()
 
 
-all_observations = []
-all_actions = []
-episode_ends = []
+    all_observations = []
+    all_actions = []
+    episode_ends = []
+    clock = pygame.time.Clock()
 
-for episode in range(NUM_EPISODES):
-    env.seed(episode)
-    obs, _ = env.reset()
-    env.render(mode='human')
-    
-    running = True
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
+    for episode in range(num_episodes):
+        env.seed(episode)
+        obs, _ = env.reset()
+        env.render(mode='human')
 
-        action = agent.act(obs)
-        if action is not None:
-            obs, reward, done, _, info = env.step(action)
-            all_observations.append(obs)
-            all_actions.append(np.array(action))
-            env.render(mode='human')
+        running = True
+        while running:
+            clock.tick(control_hz)
 
-            if done:
-                break
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
 
-    episode_ends.append(len(all_observations))
-    save_to_zarr(PATH, all_observations, all_actions, episode_ends)
-    print(f"Saved episode {episode + 1}/{NUM_EPISODES}")
+            action = agent.act(obs)
+            if action is not None:
+                all_observations.append(obs)
+                obs, reward, done, _, info = env.step(action)
+                all_actions.append(np.array(action))
+                env.render(mode='human')
 
-env.close()
+                if done:
+                    break
 
+        episode_ends.append(len(all_observations))
+        save_to_zarr(path, all_observations, all_actions, episode_ends)
+        print(f"Saved episode {episode + 1}/{NUM_EPISODES}")
+
+    env.close()
+
+
+if __name__ == "__main__":
+    CONTROL_HZ = 15
+    NUM_EPISODES = 50
+    PATH = "pusht_trained_state_data.zarr"
+    collect_data(NUM_EPISODES, PATH, CONTROL_HZ)

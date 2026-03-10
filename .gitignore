@@ -4,3 +4,5 @@
 # Generated files
 pusht_*
 vis.mp4
+
+__pycache__/
